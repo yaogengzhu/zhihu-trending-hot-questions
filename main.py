@@ -4,6 +4,8 @@ from datetime import datetime
 import json
 import re
 
+
+
 class GetHot():
     def __init__(self, url):
         self.url = url
@@ -53,12 +55,12 @@ class GetHot():
             print(f"写入文件成功，文件名为{datetime_str}")
     
     def create_readme(self, newList):
-        message = f""" # zhihu-trending-hot-questions
-                    知乎热门话题，记录从 2023-7-19
-                    日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./data)。\n{self.create_readme_list(newList)}\n### License
-                    [zhihu-trending-hot-questions](https://github.com/yaogengzhu/zhihu-trending-hot-questions)
-                    的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件。
-                """
+        message = f"""# zhihu-trending-hot-questions
+知乎热门话题，记录从 2023-7-19
+日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./data)。\n{self.create_readme_list(newList)}\n### License
+[zhihu-trending-hot-questions](https://github.com/yaogengzhu/zhihu-trending-hot-questions)
+的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件。
+"""
         with open("./README.md", "w") as f:
             f.write(message)
     
