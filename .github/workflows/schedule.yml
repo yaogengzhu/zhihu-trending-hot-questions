@@ -22,8 +22,8 @@ jobs:
 
       - name: Run main
         run: |
-          git config --local user.email "yaogengzhu@github.com"
-          git config --local user.name "robot"
+          git config --local user.email "455947455@qq.com"
+          git config --local user.name "yaogengzhu"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           python main.py
