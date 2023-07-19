@@ -2,7 +2,7 @@ name: schedule
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/1 * * * *"
 
 jobs:
   build:
@@ -29,4 +29,3 @@ jobs:
         git add .
         git commit -m "update by github action"
         git push -f
-
