@@ -1,8 +1,6 @@
 name: schedule
 
-on:
-  schedule:
-    - cron: "*/1 * * * *"
+on: [push, pull_request]
 
 jobs:
   build-linux:
