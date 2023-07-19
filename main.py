@@ -10,7 +10,7 @@ class GetHot():
         self.list = []
 
     def format_list(self, origin):
-        newList = map(lambda x:{"title": x['target']['title'], "excerpt": x['target']['excerpt'], "url": f"https://zhihu.com/questions/{x['target']['id']}"}, origin)
+        newList = map(lambda x:{"title": x['target']['title'], "excerpt": x['target']['excerpt'], "url": f"https://www.zhihu.com/question/{x['target']['id']}"}, origin)
         return list(newList)
 
     def getList(self):
@@ -54,10 +54,11 @@ class GetHot():
     
     def create_readme(self, newList):
         message = f""" # zhihu-trending-hot-questions
-知乎热门话题，记录从 2023-7-19
-日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./data)。\n{self.create_readme_list(newList)}\n### License
-[zhihu-trending-hot-questions](https://github.com/yaogengzhu/zhihu-trending-hot-questions)
-的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件。"""
+                    知乎热门话题，记录从 2023-7-19
+                    日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./data)。\n{self.create_readme_list(newList)}\n### License
+                    [zhihu-trending-hot-questions](https://github.com/yaogengzhu/zhihu-trending-hot-questions)
+                    的源码使用 MIT License 发布。具体内容请查看 [LICENSE](./LICENSE) 文件。
+                """
         with open("./README.md", "w") as f:
             f.write(message)
     
