@@ -63,7 +63,7 @@ class GetHot():
     
     def create_readme_list(self, newList):
         question_list = "\n".join(f"1. [{x['title']}]({x['url']})" for x in newList)
-        return f"<!-- BEGIN -->\n<!-- 最后更新时间 {datetime()} -->\n{question_list}\n<!-- END -->"
+        return f"<!-- BEGIN -->\n<!-- 最后更新时间 {datetime.now()} -->\n{question_list}\n<!-- END -->"
 
 
 if __name__ == "__main__":

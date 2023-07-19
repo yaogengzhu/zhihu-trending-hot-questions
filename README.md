@@ -2,7 +2,7 @@
 知乎热门话题，记录从 2023-7-19
 日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./data)。
 <!-- BEGIN -->
- <!-- 最后更新时间 2023-07-19 22:03:49.020257 -->
+<!-- 最后更新时间 2023-07-19 22:07:28.056930 -->
 1. [「高考钉子户」唐尚珺被华中师大退档「以为分数挺稳的，没有服从调剂」，如何看待他的高考志愿填报？](https://zhihu.com/questions/612864390)
 1. [中共中央国务院发布关于促进民营经济发展壮大的意见，如何解读？哪些信息值得关注？](https://zhihu.com/questions/612942835)
 1. [公司花费 1.2 亿租楼以 300 每月的价格租给员工住，如何看待该公司的做法，你的公司有什么福利？](https://zhihu.com/questions/612856157)
@@ -52,7 +52,7 @@
 1. [用一段话证明你玩某款游戏时不走寻常路?](https://zhihu.com/questions/608538992)
 1. [钱可以左右人的生活吗？](https://zhihu.com/questions/610031701)
 1. [在职场上，不过分放大负面情绪的能力有多重要？如何卸下「情绪枷锁」，避免「内耗」？](https://zhihu.com/questions/611885314)
-1. [去泰国旅游有推荐的地方吗？](https://zhihu.com/questions/609303313) 
+1. [去泰国旅游有推荐的地方吗？](https://zhihu.com/questions/609303313)
 <!-- END -->
 ### License
 [zhihu-trending-hot-questions](https://github.com/yaogengzhu/zhihu-trending-hot-questions)
