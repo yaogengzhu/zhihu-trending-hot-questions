@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --local user.email "455947455@qq.com"
           git config --local user.name "yaogengzhu"
-          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.MY_GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           python main.py
           git add .
