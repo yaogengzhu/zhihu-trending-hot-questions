@@ -25,6 +25,7 @@ class GetHot():
                     return oldList
                 return []
         except FileNotFoundError:
+            open(datetime_str, "w")
             return []
     
     def write_list(self):
