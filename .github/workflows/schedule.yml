@@ -5,7 +5,9 @@ on:
     - cron: "*/5 * * * *"
 
 jobs:
-  runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
+
   steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -27,3 +29,4 @@ jobs:
         git add .
         git commit -m "update by github action"
         git push -f
+
