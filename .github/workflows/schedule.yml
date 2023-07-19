@@ -5,27 +5,30 @@ on:
     - cron: "*/1 * * * *"
 
 jobs:
-  build:
+  build-linux:
     runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 5
 
-  steps:
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.9"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-    - name: Run main
-      run: |
-        git config --local user.email "yaogengzhu@github.com"
-        git config --local user.name "robot"
-        git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git pull --rebase
-        python main.py
-        git add .
-        git commit -m "update by github action"
-        git push -f
+      - name: Run main
+        run: |
+          git config --local user.email "yaogengzhu@github.com"
+          git config --local user.name "robot"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          python main.py
+          git add .
+          git commit -m "update by github action"
+          git push -f
