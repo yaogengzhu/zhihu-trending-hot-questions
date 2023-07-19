@@ -1,3 +1,4 @@
+import os
 import requests
 from datetime import datetime
 import json
@@ -27,7 +28,8 @@ class GetHot():
             return []
     
     def write_list(self):
-        datetime_str = f"./data/{datetime.now().strftime('%Y-%m-%d')}.json";
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        datetime_str = f"{dir_path}/data/{datetime.now().strftime('%Y-%m-%d')}.json";
         newlist = self.getList()
         oldList = self.read_old_list(datetime_str)
         # 写数据之前判断这个数据是否存在
