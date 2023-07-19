@@ -2,8 +2,6 @@ import os
 import requests
 from datetime import datetime
 import json
-import re
-
 
 
 class GetHot():
@@ -37,22 +35,22 @@ class GetHot():
         dir_path = os.path.dirname(os.path.realpath(__file__)) + '/data'
         datetime_str = f"{dir_path}/{datetime.now().strftime('%Y-%m-%d')}.json";
         current_list = self.getList()
+        # print(current_list)
         oldList = self.read_old_list(datetime_str)
         # 写数据之前判断这个数据是否存在
-        mergeList = []
+        mergeList = oldList + current_list
+        
         if len(oldList) == 0:
              with open(datetime_str, "w") as f:
                 json.dump(current_list, f, ensure_ascii=False, indent=4)
                 print(f"写入文件成功，文件名为{datetime_str}")
         else:
-            for item in oldList:
-                if item['title'] not in current_list:
-                    mergeList.append(item)
-            with open(datetime_str, "w") as f:
-                json.dump(mergeList, f, ensure_ascii=False, indent=4)
-                # print(self.create_readme_list(mergeList))
-                self.create_readme(mergeList)
-            print(f"写入文件成功，文件名为{datetime_str}")
+            # 去掉重复的数据
+            result = [dict(t) for t in {tuple(d.items()) for d in mergeList}]
+        with open(datetime_str, "w") as f:
+            json.dump(result, f, ensure_ascii=False, indent=4)
+            self.create_readme(result)
+        print(f"写入文件成功，文件名为{datetime_str}")
     
     def create_readme(self, newList):
         message = f"""# zhihu-trending-hot-questions
