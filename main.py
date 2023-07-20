@@ -52,6 +52,7 @@ class GetHot():
     
     def create_readme(self, newList):
         message = f"""# zhihu-trending-hot-questions
+参考[项目](https://github.com/justjavac/zhihu-trending-hot-questions), 由Python改写，仅为学习Python，无任何其他用途
 知乎热门话题，记录从 2023-7-19
 日开始的知乎热门话题。每小时抓取一次数据，按天[归档](./data)。\n{self.create_readme_list(newList)}\n### License
 [zhihu-trending-hot-questions](https://github.com/yaogengzhu/zhihu-trending-hot-questions)
