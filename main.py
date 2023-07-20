@@ -22,12 +22,10 @@ class GetHot():
         try:
             with open(datetime_str, 'r') as f:
                 oldList = json.load(f)
-                if len(oldList) != 0:
-                    return oldList
-                return []
+                return oldList
         except FileNotFoundError:
-            open(datetime_str, "w")
-            return []
+            with open(datetime_str, "w") as f:
+                return []
     
     def write_list(self):
         if not os.path.exists('./data'):
@@ -35,22 +33,22 @@ class GetHot():
         dir_path = os.path.dirname(os.path.realpath(__file__)) + '/data'
         datetime_str = f"{dir_path}/{datetime.now().strftime('%Y-%m-%d')}.json";
         current_list = self.getList()
-        # print(current_list)
         oldList = self.read_old_list(datetime_str)
         # 写数据之前判断这个数据是否存在
-        mergeList = oldList + current_list
+        mergeList = []
         
         if len(oldList) == 0:
              with open(datetime_str, "w") as f:
                 json.dump(current_list, f, ensure_ascii=False, indent=4)
                 print(f"写入文件成功，文件名为{datetime_str}")
         else:
+            mergeList = oldList + current_list
             # 去掉重复的数据
             result = [dict(t) for t in {tuple(d.items()) for d in mergeList}]
-        with open(datetime_str, "w") as f:
-            json.dump(result, f, ensure_ascii=False, indent=4)
-            self.create_readme(result)
-        print(f"写入文件成功，文件名为{datetime_str}")
+            with open(datetime_str, "w") as f:
+                json.dump(result, f, ensure_ascii=False, indent=4)
+                self.create_readme(result)
+                print(f"写入文件成功，文件名为{datetime_str}")
     
     def create_readme(self, newList):
         message = f"""# zhihu-trending-hot-questions
